@@ -1,7 +1,7 @@
 version: '3.9'
 
 services:
-  persons_db:
+  portions_db:
     image: 'postgres:latest'
     container_name: portions_db
     ports:

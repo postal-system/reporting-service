@@ -6,7 +6,7 @@ import io.aimc.reportingservice.mapper.PortionMapper
 import io.aimc.reportingservice.mapper.ReportMapper
 import io.aimc.reportingservice.service.PortionService
 import org.springframework.stereotype.Component
-import java.time.Instant
+import java.time.LocalDate
 
 @Component
 class PortionFacade(
@@ -18,11 +18,11 @@ class PortionFacade(
         portionService.addPortion(portionMapper.fromDto(portionDto))
     }
 
-    fun getReportByDate(date: Instant): ReportDto {
+    fun getReportByDate(date: LocalDate): ReportDto {
         return reportMapper.toDto(portionService.getReportByDate(date))
     }
 
-    fun getReportByWeek(date: Instant): ReportDto {
-        return reportMapper.toDto(portionService.getReportByWeek(date))
-    }
+//    fun getReportByWeek(date: Instant): ReportDto {
+//        return reportMapper.toDto(portionService.getReportByWeek(date))
+//    }
 }

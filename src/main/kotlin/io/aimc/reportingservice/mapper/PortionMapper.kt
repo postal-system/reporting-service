@@ -10,6 +10,6 @@ import org.springframework.stereotype.Component
 @Component
 interface PortionMapper {
     fun toDto(portion: Portion):PortionDto
-    @Mapping(target = "timestamp", expression = "java(Instant.now())")
+    @Mapping(target = "date", expression = "java(LocalDate.now())")
     fun fromDto(portionDto: PortionDto):Portion
 }

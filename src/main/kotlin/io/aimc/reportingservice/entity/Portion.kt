@@ -3,7 +3,7 @@ package io.aimc.reportingservice.entity
 import com.vladmihalcea.hibernate.type.array.ListArrayType
 import org.hibernate.annotations.Type
 import org.hibernate.annotations.TypeDef
-import java.time.Instant
+import java.time.LocalDate
 import java.util.*
 import javax.persistence.Column
 import javax.persistence.Entity
@@ -18,6 +18,6 @@ data class Portion(
     @Type(type = "list-array")
     @Column(name = "shipment_ids", columnDefinition = "uuid[]")
     private val shipmentIds: MutableList<UUID>,
-    @Column(name = "sending_timestamp", nullable = false)
-    private val timestamp: Instant
+    @Column(name = "sending_date", nullable = false)
+    private val date: LocalDate
 )
