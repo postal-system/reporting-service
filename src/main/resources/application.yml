@@ -5,6 +5,8 @@ spring:
     consumer:
       auto-offset-reset: earliest
       groupId: "portion"
+  rabbitmq:
+    portion-queue: "portionsofshipments"
 
   datasource:
     url: jdbc:postgresql://localhost:5434/portions

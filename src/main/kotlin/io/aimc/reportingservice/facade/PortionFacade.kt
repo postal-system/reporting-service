@@ -12,4 +12,3 @@ class PortionFacade(private val portionService: PortionService,
         portionService.addPortion(mapper.fromDto(portionDto))
     }
 }
-
