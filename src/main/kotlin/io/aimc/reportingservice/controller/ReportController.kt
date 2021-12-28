@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.RestController
 import java.time.LocalDate
 
 @RestController
-@RequestMapping("/api/portions")
-class PortionController(private val portionFacade: PortionFacade) {
+@RequestMapping("/api/reports")
+class ReportController(private val portionFacade: PortionFacade) {
 
-    @GetMapping(produces = [MediaType.APPLICATION_XML_VALUE])
+    @GetMapping("/date",produces = [MediaType.APPLICATION_XML_VALUE])
     fun getReportByDate(@RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") date: LocalDate): ReportDto {
         return portionFacade.getReportByDate(date)
     }
 
-//    @GetMapping(produces = [MediaType.APPLICATION_XML_VALUE])
-//    fun getReportByWeek(@RequestParam("date") @DateTimeFormat(pattern = "dd.MM.yyyy") date: Instant): ReportDto {
-//        return portionFacade.getReportByWeek(date)
-//    }
+    @GetMapping("/week",produces = [MediaType.APPLICATION_XML_VALUE])
+    fun getReportByWeek(@RequestParam("fromDate") @DateTimeFormat(pattern = "yyyy-MM-dd") fromDate: LocalDate): ReportDto {
+        return portionFacade.getReportByWeek(fromDate)
+    }
 }

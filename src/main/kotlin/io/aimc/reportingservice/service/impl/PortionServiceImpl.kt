@@ -6,7 +6,6 @@ import io.aimc.reportingservice.repository.PortionRepository
 import io.aimc.reportingservice.service.PortionService
 import org.springframework.stereotype.Service
 import java.time.LocalDate
-import java.time.temporal.ChronoUnit
 
 @Service
 class PortionServiceImpl(private val portionRepository: PortionRepository) : PortionService {
@@ -15,13 +14,15 @@ class PortionServiceImpl(private val portionRepository: PortionRepository) : Por
         portionRepository.save(portion)
     }
 
-    override fun getReportByDate(date: LocalDate):Report {
-        val portionAmount:Int = portionRepository.countPortionByDate(date)
-        val shipmentAmount:Int = portionRepository.countShipmentByDate(date)
-        return Report(portionAmount,shipmentAmount)
+    override fun getReportByDate(date: LocalDate): Report {
+        val portionAmount: Int = portionRepository.countPortionByDate(date)
+        val shipmentAmount: Int = portionRepository.countShipmentByDate(date)
+        return Report(portionAmount, shipmentAmount)
     }
 
-//    override fun getReportByWeek(date: Instant):Report {
-//        TODO("Not yet implemented")
-//    }
+    override fun getReportByWeek(fromDate: LocalDate): Report {
+        val portionAmount: Int = portionRepository.countPortionByWeek(fromDate)
+        val shipmentAmount: Int = portionRepository.countShipmentByWeek(fromDate)
+        return Report(portionAmount, shipmentAmount)
+    }
 }

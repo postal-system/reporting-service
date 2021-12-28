@@ -11,7 +11,6 @@ class PortionListenerService(private val portionFacade: PortionFacade) {
     @KafkaListener(topics = ["\${spring.kafka.portion-topic}"])
     @RabbitListener(queues = ["\${spring.rabbitmq.portion-queue}"])
     fun getPortion(portionDto: PortionDto) {
-        println("$portionDto")//todo delete
         portionFacade.addPortion(portionDto)
     }
 }
