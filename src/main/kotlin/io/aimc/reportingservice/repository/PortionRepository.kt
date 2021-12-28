@@ -12,7 +12,7 @@ interface PortionRepository : JpaRepository<Portion, UUID> {
     fun countPortionByDate(@Param("date") date: LocalDate): Int
 
     @Query(
-        "select sum(cardinality(shipment_ids)) from portion where sending_date = :date",
+        "select coalesce(sum(cardinality(shipment_ids)),0) from portion where sending_date = :date",
         nativeQuery = true
     )
     fun countShipmentByDate(@Param("date") date: LocalDate): Int
@@ -24,7 +24,7 @@ interface PortionRepository : JpaRepository<Portion, UUID> {
     fun countPortionByWeek(@Param("fromDate") fromDate: LocalDate): Int
 
     @Query(
-        "select sum(cardinality(shipment_ids)) from portion where sending_date between :fromDate and date(:fromDate) + interval '1 week'",
+        "select coalesce(sum(cardinality(shipment_ids)),0) from portion where sending_date between :fromDate and date(:fromDate) + interval '1 week'",
         nativeQuery = true
     )
     fun countShipmentByWeek(@Param("fromDate") fromDate: LocalDate): Int
