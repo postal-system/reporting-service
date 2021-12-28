@@ -4,7 +4,7 @@ spring:
     portion-topic: "portions"
     consumer:
       auto-offset-reset: earliest
-      groupId: "portion"
+      groupId: "report"
   rabbitmq:
     portion-queue: "portionsofshipments"
 
