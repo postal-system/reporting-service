@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class PortionListenerService(private val portionFacade: PortionFacade) {
-    @KafkaListener(topics = ["\${spring.kafka.portion-topic}"])
+    @KafkaListener(topics = ["\${spring.kafka.portion-topic}"])//todo добавить отдельные классы для кафки и рэббит
     @RabbitListener(queues = ["\${spring.rabbitmq.portion-queue}"])
     fun getPortion(portionDto: PortionDto) {
         portionFacade.addPortion(portionDto)
