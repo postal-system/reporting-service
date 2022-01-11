@@ -14,7 +14,7 @@ import java.time.LocalDate
 @RequestMapping("/api/reports")
 class ReportController(private val portionFacade: PortionFacade) {
 
-    @GetMapping("/date",produces = [MediaType.APPLICATION_XML_VALUE])
+    @GetMapping("/date",produces = [MediaType.APPLICATION_XML_VALUE]) //todo return xml file
     fun getReportByDate(@RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") date: LocalDate): ReportDto {
         return portionFacade.getReportByDate(date)
     }

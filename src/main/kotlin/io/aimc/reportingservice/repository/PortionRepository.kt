@@ -8,10 +8,7 @@ import org.springframework.data.repository.query.Param
 import java.time.LocalDate
 import java.util.*
 
-interface PortionRepository : JpaRepository<Portion, UUID>,JpaSpecificationExecutor<Portion> {
-//    @Query("select count(portion_id) from portion where sending_date = :date", nativeQuery = true)
-//    fun countPortionByDate(@Param("date") date: LocalDate): Int
-
+interface PortionRepository : JpaRepository<Portion, UUID>, JpaSpecificationExecutor<Portion> {
     @Query(
         "select coalesce(sum(cardinality(shipment_ids)),0) from portion where sending_date = :date",
         nativeQuery = true
