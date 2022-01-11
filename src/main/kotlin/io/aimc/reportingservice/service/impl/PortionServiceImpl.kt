@@ -7,9 +7,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class PortionServiceImpl(private val portionRepository: PortionRepository) : PortionService {
-
     override fun addPortion(portion: Portion) {
         portionRepository.save(portion)
     }
-
 }
