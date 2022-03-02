@@ -1,11 +1,14 @@
 package io.aimc.reportingservice.dto
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import java.util.*
+import java.time.LocalDateTime
+import java.util.UUID
 
 data class PortionDto(
     @JsonProperty("id")
     val id: UUID,
-    @JsonProperty("shipmentIds")
-    val shipmentIds: MutableList<UUID>
+    @JsonProperty("letterIds")
+    val letterIds: List<UUID>,
+    @JsonProperty("localDateTime")
+    val localDateTime: LocalDateTime
 )

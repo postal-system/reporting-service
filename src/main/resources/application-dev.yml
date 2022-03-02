@@ -1,0 +1,28 @@
+# spring:
+#   kafka:
+#     bootstrap-servers: 130.193.56.118:9092
+#     portion-topic: "portions"
+#     consumer:
+#       auto-offset-reset: earliest
+#       groupId: "report"
+#   rabbitmq:
+#     portion-queue: "portionsofshipments"
+#
+#   datasource:
+#     url: jdbc:postgresql://130.193.56.118:5434/raw_portions
+#     username: postgres
+#     password: mcpmwC8gGwVKr4Q9xCKZEzEgS
+#
+#   jpa:
+#     database: postgresql
+#     database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+#
+#     liquibase:
+#       change-log: classpath:/db/changelog/db.changelog-master.yaml
+#       enabled: true
+# server:
+#   port: 8083
+# reports:
+#   directory: "reports"
+#
+

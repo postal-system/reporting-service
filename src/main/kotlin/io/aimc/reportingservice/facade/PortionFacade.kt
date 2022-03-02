@@ -11,6 +11,7 @@ class PortionFacade(
     private val portionMapper: PortionMapper
 ) {
     fun addPortion(portionDto: PortionDto) {
-        portionService.addPortion(portionMapper.fromDto(portionDto))
+        val portion = portionMapper.fromDto(portionDto);
+        portionService.addRawPortion(portion)
     }
 }

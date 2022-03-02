@@ -15,7 +15,6 @@ import java.time.LocalDate
 class ReportController(
     private val reportFacade: ReportFacade
 ) {
-
     @GetMapping("/date", produces = [MediaType.APPLICATION_XML_VALUE])
     fun getReportByDate(@RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") date: LocalDate): ReportDto {
         return reportFacade.getReportByDate(date)
