@@ -20,13 +20,13 @@ class ReportServiceImpl(
 
     override fun getReportByDate(date: LocalDate): Report {
         val start = LocalDateTime.of(date, LocalTime.of(0, 0))
-        val end = LocalDateTime.of(date, LocalTime.of(0, 0)).plusDays(1);
-        return getReportByBetweenTime(start, end);
+        val end = LocalDateTime.of(date, LocalTime.of(0, 0)).plusDays(1)
+        return getReportByBetweenTime(start, end)
     }
 
     override fun getReportByWeek(fromDate: LocalDate): Report {
-        val start = LocalDateTime.of(fromDate, LocalTime.of(0, 0))
-        val end = LocalDateTime.of(fromDate, LocalTime.of(0, 0)).plusWeeks(1);
+        val start = LocalDateTime.of(fromDate, LocalTime.of(0, 0)).minusWeeks(1)
+        val end = LocalDateTime.of(fromDate, LocalTime.of(0, 0))
         return getReportByBetweenTime(start, end)
     }
 }
