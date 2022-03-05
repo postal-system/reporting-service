@@ -8,6 +8,6 @@ import org.springframework.stereotype.Component
 class ReportMapper {
     fun toDto(report: Report) = ReportDto(
         report.portionAmount,
-        report.shipmentAmount
+        report.letterAmount
     )
 }

@@ -23,6 +23,7 @@ class ReportController(
         header.setContentType(MediaType.APPLICATION_XML)
         header.set(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + date)
         return ResponseEntity.ok()
+            .contentType(MediaType.APPLICATION_ATOM_XML)
             .headers(header)
             .body(reportFacade.getReportByDate(date))
     }
@@ -36,4 +37,20 @@ class ReportController(
             .headers(header)
             .body(reportFacade.getReportByWeek(fromDate))
     }
+
+    @GetMapping("/date2")
+    fun getReportByDate2(
+        @RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") date: LocalDate,
+        @RequestParam("type") type: String
+    ): ResponseEntity<Resource> {
+        val header = HttpHeaders()
+//        header.setContentType(MediaType.APPLICATION_XML)
+        header.setContentType(MediaType.APPLICATION_OCTET_STREAM)
+        header.set(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + date)
+        return ResponseEntity.ok()
+//            .contentType(MediaType.APPLICATION_ATOM_XML)
+            .headers(header)
+            .body(reportFacade.getReportByDate(date, type))
+    }
+
 }
