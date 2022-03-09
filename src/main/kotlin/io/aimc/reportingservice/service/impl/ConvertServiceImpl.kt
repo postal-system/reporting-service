@@ -1,8 +1,10 @@
-package io.aimc.reportingservice.util
+package io.aimc.reportingservice.service.impl
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
 import io.aimc.reportingservice.model.Report
+import io.aimc.reportingservice.service.ConvertService
 import java.io.ByteArrayOutputStream
+import java.io.InputStream
 import java.io.PrintWriter
 import org.apache.commons.csv.CSVFormat
 import org.apache.commons.csv.CSVPrinter
@@ -11,29 +13,28 @@ import org.apache.poi.ss.usermodel.Row
 import org.apache.poi.ss.usermodel.Sheet
 import org.apache.poi.ss.usermodel.Workbook
 import org.apache.poi.xssf.usermodel.XSSFWorkbook
-import org.springframework.core.io.InputStreamResource
-import org.springframework.core.io.Resource
 import org.springframework.stereotype.Service
 
 @Service
-class ReportFileService {
-    fun toXml(report: Report): Resource {
+class ConvertServiceImpl : ConvertService {
+
+    override fun toXml(report: Report): InputStream {
         val xml = XmlMapper().writeValueAsString(report)
-        return InputStreamResource(xml.byteInputStream())
+        return xml.byteInputStream()
     }
 
-    fun toCsv(report: Report): Resource {
+    override fun toCsv(report: Report): InputStream {
         val csvFormat = CSVFormat.DEFAULT.withHeader("portionAmount", "letterAmount")
         val out = ByteArrayOutputStream()
         out.use {
             val printer = CSVPrinter(PrintWriter(out), csvFormat)
             printer.printRecord(report.portionAmount, report.letterAmount)
             printer.flush()
-            return InputStreamResource(out.toByteArray().inputStream())
+            return out.toByteArray().inputStream()
         }
     }
 
-    fun toXlsx(report: Report): Resource {
+    override fun toXlsx(report: Report): InputStream {
         val workbook: Workbook = XSSFWorkbook()
         val out = ByteArrayOutputStream()
         out.use {
@@ -56,10 +57,10 @@ class ReportFileService {
 
                 cell = row.createCell(1)
                 cell.setCellValue(report.letterAmount.toString())
-                // записать в файл
+                // записать в результат
                 workbook.write(out)
             }
-            return InputStreamResource(out.toByteArray().inputStream())
+            return out.toByteArray().inputStream()
         }
     }
 }

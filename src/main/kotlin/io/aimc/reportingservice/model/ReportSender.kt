@@ -1,7 +1,6 @@
 package io.aimc.reportingservice.model
 
-data class Report(
-    val portionAmount: Long,
+data class ReportSender(
+    val sender: String,
     val letterAmount: Long
-
 )

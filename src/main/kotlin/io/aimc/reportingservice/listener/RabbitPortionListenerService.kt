@@ -1,4 +1,4 @@
-package io.aimc.reportingservice.service
+package io.aimc.reportingservice.listener
 
 import io.aimc.reportingservice.dto.PortionDto
 import io.aimc.reportingservice.facade.PortionFacade
