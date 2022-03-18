@@ -1,6 +1,6 @@
 package io.aimc.reportingservice.conf
 
-import io.aimc.reportingservice.dto.PortionDto
+import io.aimc.reportingservice.controller.dto.PortionDto
 import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.common.serialization.StringDeserializer
 import org.springframework.beans.factory.annotation.Value

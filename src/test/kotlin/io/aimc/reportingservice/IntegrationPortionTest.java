@@ -1,7 +1,7 @@
 package io.aimc.reportingservice;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.aimc.reportingservice.dto.PortionDto;
+import io.aimc.reportingservice.controller.dto.PortionDto;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;

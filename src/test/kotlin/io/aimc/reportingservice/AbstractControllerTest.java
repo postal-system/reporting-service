@@ -16,7 +16,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 @DirtiesContext
 public abstract class AbstractControllerTest {
     @Container
-    private static final PostgreSQLContainer container = new PostgreSQLContainer("postgres:14.1")
+    private static final PostgreSQLContainer container = new PostgreSQLContainer("postgres:14.a1")
             .withDatabaseName("test_container")
             .withUsername("test")
             .withPassword("test");

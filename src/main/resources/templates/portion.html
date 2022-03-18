@@ -1,0 +1,24 @@
+<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" th:inline="javascript">
+      google.charts.load('current', {'packages':['table']});
+      google.charts.setOnLoadCallback(drawTable);
+
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'portion Amount');
+        data.addColumn('string', 'letter Amount');
+        data.addColumn('string', 'sending Date');
+        data.addRows([[${chartData}]]);
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+
+        table.draw(data, {showRowNumber: true, width: '100%'});
+      }
+    </script>
+</head>
+<body>
+<div id="table_div"></div>
+</body>
+</html>

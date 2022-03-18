@@ -1,7 +1,7 @@
 package io.aimc.reportingservice.listener
 
-import io.aimc.reportingservice.dto.PortionDto
-import io.aimc.reportingservice.facade.PortionFacade
+import io.aimc.reportingservice.controller.dto.PortionDto
+import io.aimc.reportingservice.service.facade.PortionFacade
 import io.aimc.reportingservice.util.LoggerDelegate
 import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.stereotype.Service
