@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 
 @Controller
-@RequestMapping("/portion/ui/table")
+@RequestMapping("/api/portions/ui/table")
 class UIPortionController(
     private val facade: PortionReportFacade
 ) {
@@ -29,7 +29,6 @@ class UIPortionController(
             }
 
         model.addAttribute("chartData", list)
-
         return "portion"
     }
 
@@ -48,7 +47,6 @@ class UIPortionController(
             }
 
         model.addAttribute("chartData", list)
-
         return "portion"
     }
 }

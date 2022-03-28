@@ -21,10 +21,8 @@ class SenderXlsxGenerator : SenderReportGenerator {
         val out = ByteArrayOutputStream()
         out.use {
             workbook.use {
-                // создать страницу
                 val sheet: Sheet = workbook.createSheet("Report")
 
-                // создать заголовки
                 val header: Row = sheet.createRow(0)
 
                 var headerCell: Cell = header.createCell(0)
@@ -33,8 +31,7 @@ class SenderXlsxGenerator : SenderReportGenerator {
                 headerCell = header.createCell(1)
                 headerCell.setCellValue("letterAmount")
 
-                var i: Int = 1
-//                 заполнить данными
+                var i = 1
                 report.forEach {
                     val row = sheet.createRow(i)
 
@@ -46,7 +43,6 @@ class SenderXlsxGenerator : SenderReportGenerator {
                     i++
                 }
 
-                // записать в результат
                 workbook.write(out)
             }
             return out.toByteArray().inputStream()

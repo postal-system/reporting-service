@@ -9,6 +9,7 @@ data class PortionDto(
     val id: UUID,
     @JsonProperty("letterIds")
     val letterIds: List<UUID>,
+    // TODO: 28.03.2022 Привести к единому типу во всех сервисах или определиться с названием переменной
     @JsonProperty("localDateTime")
     val localDateTime: LocalDateTime
 )

@@ -20,7 +20,7 @@ class PortionReportServiceImpl(
                 it.getLetterAmount(),
                 it.getSendingDate().toLocalDate()
             ))
-        }.toList()
+        }
     }
 
     override fun getByWeek(fromDate: LocalDate): List<PortionReport> {

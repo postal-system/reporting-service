@@ -33,9 +33,11 @@ class SenderReportFacade(
         if (generator != null) {
             return generator.generate(reports)
         }
+        // TODO: 28.03.2022 кастомизировать исключения
         throw IllegalArgumentException("Cannot convert to $type type")
     }
 
+    // TODO: 28.03.2022 Избавиться от дублирования в фасаде перенести сюда работу с датами
     fun getReportDate(fromDate: LocalDate): List<SenderReport> {
         val letterIds: List<UUID> = portionService.getPortionsByDate(fromDate).flatMap { it.letterIds }
         val letters: List<LetterDto> = letterClient.getByListId(letterIds)

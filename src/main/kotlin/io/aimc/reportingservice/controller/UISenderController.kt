@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 
 @Controller
-@RequestMapping("/sender/ui/table")
+@RequestMapping("/senders/ui/table")
 class UISenderController(
     private val facade: SenderReportFacade
 ) {
-    @GetMapping("/date")
+    @GetMapping("/api/date")
     fun getTableDate(
         @RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") date: LocalDate,
         model: Model

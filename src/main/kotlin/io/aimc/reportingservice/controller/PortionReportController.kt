@@ -24,8 +24,8 @@ class PortionReportController(
         @RequestParam("type") type: String
     ): ResponseEntity<Resource> {
         val headers = HttpHeaders()
-        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
-        headers.set(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + date + "." + type)
+        headers.contentType = MediaType.APPLICATION_OCTET_STREAM;
+        headers.set(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=$date.$type")
         return ResponseEntity.ok()
             .headers(headers)
             .body(InputStreamResource(facade.getReportByDateFile(date, type)))
@@ -37,7 +37,7 @@ class PortionReportController(
         @RequestParam("type") type: String
     ): ResponseEntity<Resource> {
         val headers = HttpHeaders()
-        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+        headers.contentType = MediaType.APPLICATION_OCTET_STREAM;
         headers.set(
             HttpHeaders.CONTENT_DISPOSITION,
             "attachment; filename=" + fromDate.minusWeeks(1) + "_" + fromDate + "." + type

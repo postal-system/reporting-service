@@ -19,6 +19,12 @@
         <spring-cloud.version>2020.0.0</spring-cloud.version>
     </properties>
     <dependencies>
+        <!--        custom starter-->
+        <dependency>
+            <groupId>io.codero</groupId>
+            <artifactId>interceptor-starter</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <!--       devtools -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -87,7 +93,7 @@
         <dependency>
             <groupId>com.vladmihalcea</groupId>
             <artifactId>hibernate-types-52</artifactId>
-            <version>2.14.0</version>
+            <version>2.14.1</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -123,6 +129,12 @@
             <version>1.16.3</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>kafka</artifactId>
+            <version>1.16.3</version>
+            <scope>test</scope>
+        </dependency>
         <!--        xml-->
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
@@ -138,12 +150,12 @@
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
-            <version>5.2.0</version>
+            <version>5.2.2</version>
         </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
-            <version>5.2.0</version>
+            <version>5.2.2</version>
         </dependency>
     </dependencies>
     <dependencyManagement>

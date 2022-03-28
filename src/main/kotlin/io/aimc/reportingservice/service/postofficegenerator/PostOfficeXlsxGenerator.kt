@@ -31,7 +31,7 @@ class PostOfficeXlsxGenerator : PostOfficeReportGenerator {
                 headerCell = header.createCell(1)
                 headerCell.setCellValue("amount of letter")
 
-                var i: Int = 1
+                var i = 1
 
                 report.forEach {
                     val row = sheet.createRow(i)

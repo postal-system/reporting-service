@@ -21,10 +21,8 @@ class PortionXlsxGenerator : PortionReportGenerator {
         val out = ByteArrayOutputStream()
         out.use {
             xssfWorkbook.use {
-                // создать страницу
                 val sheet: Sheet = xssfWorkbook.createSheet("portionReport")
 
-                // создать заголовки
                 val header: Row = sheet.createRow(0)
 
                 var headerCell: Cell = header.createCell(0)
@@ -37,7 +35,6 @@ class PortionXlsxGenerator : PortionReportGenerator {
                 headerCell.setCellValue("date")
 
                 var i = 1
-                // заполнить данными
                 report.forEach {
                     val row = sheet.createRow(i)
                     var cell = row.createCell(0)
@@ -52,7 +49,6 @@ class PortionXlsxGenerator : PortionReportGenerator {
                     i++
                 }
 
-                // записать в результат
                 xssfWorkbook.write(out)
                 xssfWorkbook.close()
             }

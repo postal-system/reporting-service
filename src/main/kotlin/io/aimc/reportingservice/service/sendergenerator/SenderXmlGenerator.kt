@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component
 
 @Component
 class SenderXmlGenerator : SenderReportGenerator {
+    // TODO: 28.03.2022 привести типы данных к enum
 
     override fun getType() = "xml"
 

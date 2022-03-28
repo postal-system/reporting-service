@@ -10,18 +10,17 @@ import org.apache.commons.csv.CSVPrinter
 import org.springframework.stereotype.Component
 
 @Component
-class PortionCsvGenerator: PortionReportGenerator {
+class PortionCsvGenerator : PortionReportGenerator {
 
     override fun getType() = "csv"
 
     override fun generate(report: List<PortionReport>): InputStream {
-        val csvFormat = CSVFormat.DEFAULT.withHeader("portionAmount", "letterAmount","Date")
+        val csvFormat = CSVFormat.DEFAULT.withHeader("portionAmount", "letterAmount", "Date")
         val out = ByteArrayOutputStream()
         out.use {
-            val printer: CSVPrinter = CSVPrinter(PrintWriter(out), csvFormat)
-            report.forEach {  printer.printRecord(it.portionAmount, it.letterAmount, it.sendingDate) }
+            val printer = CSVPrinter(PrintWriter(out), csvFormat)
+            report.forEach { printer.printRecord(it.portionAmount, it.letterAmount, it.sendingDate) }
             printer.flush()
-
             return out.toByteArray().inputStream()
         }
     }

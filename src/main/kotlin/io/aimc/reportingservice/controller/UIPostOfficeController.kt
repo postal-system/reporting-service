@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 
 @Controller
-@RequestMapping("/post-office/ui/table")
+@RequestMapping("/api/post-offices/ui/table")
 class UIPostOfficeController(
     private val facade: PostOfficeReportFacade
 ) {
@@ -28,7 +28,6 @@ class UIPostOfficeController(
             }
 
         model.addAttribute("chartData", list)
-
         return "office"
     }
 
@@ -45,8 +44,8 @@ class UIPostOfficeController(
                     it.letterAmount
                 )
             }
-        model.addAttribute("chartData", list)
 
+        model.addAttribute("chartData", list)
         return "office"
     }
 }

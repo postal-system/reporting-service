@@ -7,15 +7,13 @@ import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 
-//@FeignClient(name = "letter-service", url = "\${spring.feign.letter-client.url}")
 @FeignClient(name = "letter-service", url = "http://localhost:8086")
 interface LetterClient {
 
     @PostMapping(
-        value = ["/letter/list-id"],
+        value = ["/api/letters/ids"],
         produces = [MediaType.APPLICATION_JSON_VALUE],
         consumes = [MediaType.APPLICATION_JSON_VALUE]
     )
     fun getByListId(@RequestBody letterIds: List<UUID>): List<LetterDto>
-
 }
