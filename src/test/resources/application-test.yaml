@@ -1,10 +1,10 @@
 spring:
   kafka:
     producer:
-      topic: "portion"
+      topic: "portion-test"
     consumer:
-      topic: "portion"
-      group-id: "portion"
+      topic: "portion-test"
+      group-id: "portion-test-group"
 interceptor:
   kafka:
     topic: "url"

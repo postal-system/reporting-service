@@ -1,0 +1,27 @@
+#spring:
+#  kafka:
+#    bootstrap-servers: 130.193.56.118:9092
+#    portion-topic: "portions"
+#    consumer:
+#      auto-offset-reset: earliest
+#      groupId: "portions"
+#  #  rabbitmq:
+#  #    portion-queue: "portionsofshipments"
+#  feign:
+#    letter-client:
+#      url: "http://130.193.56.118:8086"
+#  mvc:
+#    pathmatch:
+#      matching-strategy: ant_path_matcher
+#  datasource:
+#    url: jdbc:postgresql://130.193.56.118:5434/raw_portions
+#    username: postgres
+#    password: mcpmwC8gGwVKr4Q9xCKZEzEgS
+#  jpa:
+#    database: postgresql
+#    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+#    show-sql: false
+#server:
+#  port: 8083
+#reports:
+#  directory: "reports"

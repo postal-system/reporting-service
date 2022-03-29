@@ -20,20 +20,19 @@ class SenderReportFacade(
 
     fun getReportDateFile(date: LocalDate, type: String): InputStream {
         val reports: List<SenderReport> = getReportDate(date)
-        return convertType(reports, type)
+        return convert(reports, type)
     }
 
     fun getReportWeekFile(date: LocalDate, type: String): InputStream {
         val reports: List<SenderReport> = getReportWeek(date)
-        return convertType(reports, type)
+        return convert(reports, type)
     }
 
-    private fun convertType(reports: List<SenderReport>, type: String): InputStream {
+    private fun convert(reports: List<SenderReport>, type: String): InputStream {
         val generator = generatorsByType[type]
         if (generator != null) {
             return generator.generate(reports)
         }
-        // TODO: 28.03.2022 кастомизировать исключения
         throw IllegalArgumentException("Cannot convert to $type type")
     }
 

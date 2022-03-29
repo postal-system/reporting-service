@@ -1,15 +1,15 @@
 spring:
   feign:
     letter-client:
-        url: "http://localhost:8086"
+      url: "http://localhost:8086"
   kafka:
     bootstrap-servers: localhost:9092
     portion-topic: "portions"
     consumer:
       auto-offset-reset: earliest
       groupId: "shipment"
-#   rabbitmq:
-#     portion-queue: "portionsofshipments"
+  #   rabbitmq:
+  #     portion-queue: "portionsofshipments"
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
@@ -28,3 +28,7 @@ server:
   port: 8083
 reports:
   directory: "reports"
+interceptor:
+  kafka:
+    bootstrap: localhost:9092
+    topic: "url"

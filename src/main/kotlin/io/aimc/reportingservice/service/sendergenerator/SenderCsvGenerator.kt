@@ -15,7 +15,7 @@ class SenderCsvGenerator : SenderReportGenerator {
     override fun getType() = "csv"
 
     override fun generate(report: List<SenderReport>): InputStream {
-        val csvFormat = CSVFormat.DEFAULT.withHeader("sender", "letterAmount")
+        val csvFormat = CSVFormat.DEFAULT.withHeader("Sender", "Amount of sendings")
         val out = ByteArrayOutputStream()
         out.use {
             val printer = CSVPrinter(PrintWriter(out), csvFormat)

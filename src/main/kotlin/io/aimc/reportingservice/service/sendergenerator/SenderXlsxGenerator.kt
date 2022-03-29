@@ -21,7 +21,7 @@ class SenderXlsxGenerator : SenderReportGenerator {
         val out = ByteArrayOutputStream()
         out.use {
             workbook.use {
-                val sheet: Sheet = workbook.createSheet("Report")
+                val sheet: Sheet = workbook.createSheet("Senders")
 
                 val header: Row = sheet.createRow(0)
 

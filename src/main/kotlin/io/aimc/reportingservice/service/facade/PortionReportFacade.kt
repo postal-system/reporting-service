@@ -19,7 +19,6 @@ class PortionReportFacade(
         if (generator != null) {
             return generator.generate(report)
         }
-        // TODO: 11.03.2022 custom exception
         throw IllegalArgumentException("Cannot convert to $type type")
     }
 

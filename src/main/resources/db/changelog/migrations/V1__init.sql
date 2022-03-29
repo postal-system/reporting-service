@@ -3,5 +3,3 @@ create table if not exists portion (
   letter_ids uuid[],
   sending_date timestamp
 );
-
-
