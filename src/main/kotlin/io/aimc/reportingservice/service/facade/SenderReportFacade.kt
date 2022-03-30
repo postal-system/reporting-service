@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component
 class SenderReportFacade(
     private val letterClient: LetterClient,
     private val portionService: PortionService,
-    private val generators: List<SenderReportGenerator>
+    generators: List<SenderReportGenerator>
 ) {
     private val generatorsByType = generators.associateBy { it.getType() }
 
@@ -36,7 +36,6 @@ class SenderReportFacade(
         throw IllegalArgumentException("Cannot convert to $type type")
     }
 
-    // TODO: 28.03.2022 Избавиться от дублирования в фасаде перенести сюда работу с датами
     fun getReportDate(fromDate: LocalDate): List<SenderReport> {
         val letterIds: List<UUID> = portionService.getPortionsByDate(fromDate).flatMap { it.letterIds }
         val letters: List<LetterDto> = letterClient.getByListId(letterIds)

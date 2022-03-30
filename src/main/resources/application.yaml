@@ -2,6 +2,8 @@ spring:
   feign:
     letter-client:
       url: "http://localhost:8086"
+    file-client:
+      url: "http://localhost:8085"
   kafka:
     bootstrap-servers: localhost:9092
     portion-topic: "portions"
