@@ -1,0 +1,10 @@
+spring:
+  kafka:
+    producer:
+      topic: "portion-test"
+    consumer:
+      topic: "portion-test"
+      group-id: "portion-test-group"
+interceptor:
+  kafka:
+    topic: "url"

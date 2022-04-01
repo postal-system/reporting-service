@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="4.3">
+<file name="C:/Users/asmirnov/Desktop/asmirnov/reporting-service/src/main/kotlin/io/aimc/reportingservice/ReportingServiceApplication.kt">
+	<error line="10" column="45" severity="warning" message="In most cases using a spread operator causes a full copy of the array to be created before calling a method. This may result in a performance penalty." source="detekt.SpreadOperator" />
+</file>
+<file name="C:/Users/asmirnov/Desktop/asmirnov/reporting-service/src/main/kotlin/io/aimc/reportingservice/controller/ReportController.kt">
+	<error line="28" column="2" severity="warning" message="The file C:\Users\asmirnov\Desktop\asmirnov\reporting-service\src\main\kotlin\io\aimc\reportingservice\controller\ReportController.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="25" column="5" severity="warning" message="Line detected that is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="C:/Users/asmirnov/Desktop/asmirnov/reporting-service/src/main/kotlin/io/aimc/reportingservice/entity/Portion.kt">
+	<error line="15" column="5" severity="warning" message="Private property id is unused." source="detekt.UnusedPrivateMember" />
+	<error line="19" column="5" severity="warning" message="Private property shipmentIds is unused." source="detekt.UnusedPrivateMember" />
+	<error line="23" column="5" severity="warning" message="Private property date is unused." source="detekt.UnusedPrivateMember" />
+</file>
+<file name="C:/Users/asmirnov/Desktop/asmirnov/reporting-service/src/main/kotlin/io/aimc/reportingservice/repository/PortionRepository.kt">
+	<error line="19" column="9" severity="warning" message="Line detected that is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+	<error line="25" column="9" severity="warning" message="Line detected that is longer than the defined maximum line length in the code style." source="detekt.MaxLineLength" />
+</file>
+<file name="C:/Users/asmirnov/Desktop/asmirnov/reporting-service/src/main/kotlin/io/aimc/reportingservice/service/impl/ReportServiceImpl.kt">
+	<error line="46" column="2" severity="warning" message="The file C:\Users\asmirnov\Desktop\asmirnov\reporting-service\src\main\kotlin\io\aimc\reportingservice\service\impl\ReportServiceImpl.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+<file name="C:/Users/asmirnov/Desktop/asmirnov/reporting-service/src/main/kotlin/io/aimc/reportingservice/service/ReportService.kt">
+	<error line="9" column="2" severity="warning" message="The file C:\Users\asmirnov\Desktop\asmirnov\reporting-service\src\main\kotlin\io\aimc\reportingservice\service\ReportService.kt is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+</file>
+</checkstyle>

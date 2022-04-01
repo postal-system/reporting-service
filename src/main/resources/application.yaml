@@ -1,0 +1,36 @@
+spring:
+  feign:
+    letter-client:
+      url: "http://localhost:8086"
+    file-client:
+      url: "http://localhost:8085"
+  kafka:
+    bootstrap-servers: localhost:9092
+    portion-topic: "portions"
+    consumer:
+      auto-offset-reset: earliest
+      groupId: "shipment"
+  #   rabbitmq:
+  #     portion-queue: "portionsofshipments"
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  datasource:
+    url: jdbc:postgresql://localhost:5434/raw_portions
+    username: postgres
+    password: mcpmwC8gGwVKr4Q9xCKZEzEgS
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+    show-sql: true
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
+    enabled: true
+server:
+  port: 8083
+reports:
+  directory: "reports"
+interceptor:
+  kafka:
+    bootstrap: localhost:9092
+    topic: "url"
