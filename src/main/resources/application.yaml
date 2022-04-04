@@ -10,15 +10,15 @@ spring:
     consumer:
       auto-offset-reset: earliest
       groupId: "shipment"
-  #   rabbitmq:
-  #     portion-queue: "portionsofshipments"
+     rabbitmq:
+       portion-queue: "portionsofshipments"
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
   datasource:
     url: jdbc:postgresql://localhost:5434/raw_portions
     username: postgres
-    password: mcpmwC8gGwVKr4Q9xCKZEzEgS
+    password: 1234
   jpa:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQL10Dialect
